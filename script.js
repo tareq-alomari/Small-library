@@ -4,7 +4,7 @@
 //   { title: "أوليفر تويست", author: "تشارلز ديكنز", id: 2 }
 // ];
 
-let books = JSON.parse(localStorage.getItem("books")) || [];
+const books = JSON.parse(localStorage.getItem("books")) || [];
 displayBooks(books);
 
 // عرض الكتب
