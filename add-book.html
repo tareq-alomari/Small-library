@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>إضافة كتاب</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>➕ إضافة كتاب جديد</h2>
+  <form id="bookForm">
+    <input type="text" id="title" placeholder="اسم الكتاب" required><br>
+    <input type="text" id="author" placeholder="اسم المؤلف" required><br>
+    <button type="submit">إضافة</button>
+  </form>
+
+  <script>
+    document.getElementById("bookForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("سيتم حفظ الكتاب (لاحقاً بإضافة LocalStorage)");
+    });
+  </script>
+</body>
+</html>
