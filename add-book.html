@@ -13,11 +13,36 @@
     <button type="submit">إضافة</button>
   </form>
 
-  <script>
+  <!-- <script>
     document.getElementById("bookForm").addEventListener("submit", function(e) {
       e.preventDefault();
       alert("سيتم حفظ الكتاب (لاحقاً بإضافة LocalStorage)");
     });
-  </script>
+  </script> -->
+<script>
+  document.getElementById("bookForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const title = document.getElementById("title").value.trim();
+    const author = document.getElementById("author").value.trim();
+
+    if (title && author) {
+      const book = {
+        id: Date.now(),
+        title: title,
+        author: author
+      };
+
+      const books = JSON.parse(localStorage.getItem("books")) || [];
+      books.push(book);
+      localStorage.setItem("books", JSON.stringify(books));
+
+      alert("✅ تم إضافة الكتاب!");
+      window.location.href = "index.html";  // العودة للصفحة الرئيسية
+    }
+  });
+</script>
+
+
 </body>
 </html>

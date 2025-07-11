@@ -1,8 +1,11 @@
 // بيانات أولية
-let books = [
-  { title: "الخيميائي", author: "باولو كويلو", id: 1 },
-  { title: "أوليفر تويست", author: "تشارلز ديكنز", id: 2 }
-];
+// let books = [
+//   { title: "الخيميائي", author: "باولو كويلو", id: 1 },
+//   { title: "أوليفر تويست", author: "تشارلز ديكنز", id: 2 }
+// ];
+
+const books = JSON.parse(localStorage.getItem("books")) || [];
+displayBooks(books);
 
 // عرض الكتب
 function displayBooks(list) {
