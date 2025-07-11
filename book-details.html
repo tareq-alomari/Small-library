@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <title>تفاصيل الكتاب</title>
-</head>
-<body>
-  <h2>تفاصيل الكتاب</h2>
-  <p>سيتم عرض التفاصيل لاحقًا بناءً على ID من الرابط.</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>تفاصيل الكتاب</title>
+  </head>
+  <body>
+    <h2>تفاصيل الكتاب</h2>
+    <p>سيتم عرض التفاصيل لاحقًا بناءً على ID من الرابط.</p>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const bookId = parseInt(params.get("id"));
+      const books = JSON.parse(localStorage.getItem("books")) || [];
+      const book = books.find((b) => b.id === bookId);
+
+      if (book) {
+        document.body.innerHTML += `
+      <h3>${book.title}</h3>
+      <p>✍️ ${book.author}</p>
+      <a href="index.html">⬅️ العودة</a>
+    `;
+      } else {
+        document.body.innerHTML += "<p>⚠️ الكتاب غير موجود.</p>";
+      }
+    </script>
+  </body>
 </html>
